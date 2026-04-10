@@ -1,0 +1,173 @@
+/* app.css */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Dark mode variant */
+@custom-variant dark (&:is(.dark *));
+
+/* ===================== */
+/* Fonts */
+/* ===================== */
+
+
+
+.dm-serif {
+  font-family: "DM Serif Display", serif;
+  font-weight: 530;
+  font-style: normal;
+}
+
+
+/* ===================== */
+/* Cursor blink animation */
+/* ===================== */
+
+@keyframes blink-cursor {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink-cursor {
+  animation: blink-cursor 1.2s step-end infinite;
+}
+
+/* ===================== */
+/* Marquee animations */
+/* ===================== */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 40s) linear infinite;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 40s) linear infinite;
+}
+
+/* ===================== */
+/* Aurora animation */
+/* ===================== */
+
+@theme inline {
+  --animate-aurora: aurora 8s ease-in-out infinite alternate;
+
+  @keyframes aurora {
+    0% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
+    }
+    25% {
+      background-position: 50% 100%;
+      transform: rotate(5deg) scale(1.1);
+    }
+    50% {
+      background-position: 100% 50%;
+      transform: rotate(-3deg) scale(0.95);
+    }
+    75% {
+      background-position: 50% 0%;
+      transform: rotate(3deg) scale(1.05);
+    }
+    100% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
+    }
+  }
+}
+
+/* ===================== */
+/* Fade In Scale Animation */
+/* ===================== */
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeInScale {
+  animation: fadeInScale 0.7s ease-in-out forwards;
+}
+
+/* ===================== */
+/* Base styles (SAFE) */
+/* ===================== */
+
+@layer base {
+  * {
+    @apply border-transparent;
+  }
+
+  body {
+    @apply bg-white text-black dark:bg-black dark:text-white;
+  }
+}
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+}
+.popins{
+  font-family: "Poppins", sans-serif;
+  font-weight: 1000;
+  font-style: normal;
+}
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300; /* normal text */
+  font-style: normal;
+}
+.hexagon {
+  clip-path: polygon(
+    25% 6.7%, 75% 6.7%, 
+    100% 50%, 75% 93.3%, 
+    25% 93.3%, 0% 50%
+  );
+}
+.inter-bold{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600; /* normal text */
+  font-style: normal;
+}
+
+.popins-light{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
