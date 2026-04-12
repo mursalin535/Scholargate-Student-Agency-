@@ -12,13 +12,17 @@ export default function Apply() {
         name: '', address: '', phone: '', gender: '',
         email: '', dob: '',
         country: location.state?.country || 'italy',
+        disclaimer: false
     });
     const [files, setFiles] = useState({ photo: null, passport: null, certificate: null, additional: null });
     const [preview, setPreview] = useState({ photo: null });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        const { name, value, type, checked } = e.target;
+        setFormData(prev => ({ 
+            ...prev, 
+            [name]: type === 'checkbox' ? checked : value 
+        }));
     };
 
     const handleFileChange = (e) => {
@@ -34,6 +38,17 @@ export default function Apply() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!formData.disclaimer) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Disclaimer Required',
+                text: 'Please confirm that all information provided is correct and authentic.',
+                confirmButtonColor: '#3b82f6'
+            });
+            return;
+        }
+
         if (!formData.name || !formData.email || !formData.phone || !files.passport || !files.certificate) {
             Swal.fire({ icon: 'error', title: 'Missing Information', text: 'Please fill in all required fields and upload essential documents.', confirmButtonColor: '#3085d6' });
             return;
@@ -225,11 +240,11 @@ export default function Apply() {
                             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-transparent to-transparent" />
                             <div className="absolute bottom-8 left-8 right-8 text-white">
                                 <h3 className="text-2xl font-black uppercase leading-tight mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>Global Education</h3>
-                                <p className="text-blue-100 text-sm font-medium">Join thousands of students achieving their dreams in Italy, New Zealand, and Canada.</p>
+                                <p className="text-blue-100 text-sm font-medium">Join thousands of students achieving their dreams in Italy, New Zealand, Australia, and Canada.</p>
                             </div>
-                        </div>
+                            </div>
 
-                        <div className="mt-8 bg-white p-8 rounded-[32px] border border-slate-100 shadow-xl">
+                            <div className="mt-8 bg-white p-8 rounded-[32px] border border-slate-100 shadow-xl">
                             <h4 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-6 pb-4 border-b border-slate-100" style={{ fontFamily: "'Poppins', sans-serif" }}>Required Documents</h4>
                             <ul className="space-y-4">
                                 {[
@@ -248,15 +263,15 @@ export default function Apply() {
                                     </motion.li>
                                 ))}
                             </ul>
-                        </div>
-                    </motion.div>
+                            </div>
+                            </motion.div>
 
-                    {/* Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
-                        className="w-full lg:w-2/3 bg-white rounded-[40px] p-8 md:p-12 shadow-2xl shadow-slate-200 border border-slate-100"
-                    >
-                        <form onSubmit={handleSubmit} className="space-y-8">
+                            {/* Form */}
+                            <motion.div
+                            initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
+                            className="w-full lg:w-2/3 bg-white rounded-[40px] p-8 md:p-12 shadow-2xl shadow-slate-200 border border-slate-100"
+                            >
+                            <form onSubmit={handleSubmit} className="space-y-8">
 
                             <div className="flex items-center gap-3">
                                 <div className="w-1 h-7 rounded-full bg-blue-500" />
@@ -295,10 +310,10 @@ export default function Apply() {
                                         <option value="italy">🇮🇹 Italy</option>
                                         <option value="nz">🇳🇿 New Zealand</option>
                                         <option value="canada">🇨🇦 Canada</option>
+                                        <option value="australia">🇦🇺 Australia</option>
                                     </select>
                                 </div>
                             </div>
-
                             <div>
                                 <label className="form-label"><FaMapMarkerAlt className="text-blue-500" /> Present Address</label>
                                 <textarea name="address" value={formData.address} onChange={handleChange} placeholder="Enter your full address" rows="3" className="form-input resize-none" required />
@@ -343,6 +358,25 @@ export default function Apply() {
                                     ))}
                                 </div>
                             </div>
+
+                            <motion.div
+                                className="flex items-start gap-3 px-1"
+                                initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }} transition={{ delay: 0.2 }}
+                            >
+                                <input
+                                    type="checkbox"
+                                    name="disclaimer"
+                                    id="disclaimer"
+                                    checked={formData.disclaimer}
+                                    onChange={handleChange}
+                                    className="mt-1.5 w-4 h-4 rounded border-slate-300 text-blue-500 focus:ring-blue-400 cursor-pointer"
+                                    required
+                                />
+                                <label htmlFor="disclaimer" className="text-sm text-slate-500 leading-relaxed cursor-pointer select-none font-medium">
+                                    I hereby declare that all the information and documents provided in this application are authentic, complete, and accurate to the best of my knowledge.
+                                </label>
+                            </motion.div>
 
                             {/* Minimal submit */}
                             <motion.button

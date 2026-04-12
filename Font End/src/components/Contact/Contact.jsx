@@ -42,15 +42,30 @@ export default function Contact() {
     phone: '',
     date: '',
     shift: 'morning',
-    message: ''
+    message: '',
+    disclaimer: false
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({ 
+      ...formData, 
+      [name]: type === 'checkbox' ? checked : value 
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.disclaimer) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Disclaimer Required',
+        text: 'Please confirm that all information provided is correct.',
+        confirmButtonColor: '#3b82f6'
+      });
+      return;
+    }
 
     Swal.fire({
       title: 'Sending Message...',
@@ -455,6 +470,25 @@ export default function Contact() {
                   className="w-full px-5 py-4 bg-slate-50 border-2 border-transparent rounded-2xl focus:bg-white focus:border-blue-400 transition-all outline-none text-slate-700 font-medium resize-none"
                   required
                 ></textarea>
+              </motion.div>
+
+              <motion.div
+                className="flex items-start gap-3 px-1"
+                initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ delay: 0.62 }}
+              >
+                <input
+                  type="checkbox"
+                  name="disclaimer"
+                  id="disclaimer"
+                  checked={formData.disclaimer}
+                  onChange={handleChange}
+                  className="mt-1.5 w-4 h-4 rounded border-slate-300 text-blue-500 focus:ring-blue-400 cursor-pointer"
+                  required
+                />
+                <label htmlFor="disclaimer" className="text-sm text-slate-500 leading-relaxed cursor-pointer select-none">
+                  I hereby declare that all the information provided above is true, complete, and accurate to the best of my knowledge.
+                </label>
               </motion.div>
 
               <motion.button

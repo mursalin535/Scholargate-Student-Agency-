@@ -16,7 +16,7 @@ function Landing() {
       img1:'/carrier1.webp',
       img2:'/carrier2.webp',
       img3:'/carrier3.webp',
-      heading:'Accelerate Your Career Growth',
+      heading:'Accelerate Your Growth',
       des:'Build your professional future with mentorship, networking, and skill-building. Unlock opportunities in global industries and advance with confidence through tailored career guidance.'
     },
     {
@@ -62,7 +62,7 @@ function Landing() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -40, opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 poppins text-center"
+              className="text-4xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold text-slate-900 poppins text-center"
             >
               {topics[currentTopic].heading}
             </motion.h1>

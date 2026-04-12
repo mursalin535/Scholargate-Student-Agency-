@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import './App.css';
 import Nav from '../Nav';
 import Footer from '../Footer';
+import FloatingActions from './components/FloatingActions';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <>
       <Nav />
       <Outlet />
+      <FloatingActions />
       <Footer />
     </>
   );

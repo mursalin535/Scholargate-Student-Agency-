@@ -143,7 +143,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-2xl font-black text-slate-800 poppins tracking-tight">
-                  Student <span className="text-blue-500">Agency</span>
+                  ✒️Legacy <span className="text-blue-500">ScholarGate</span>
                 </span>
                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mt-1">Global Education</span>
               </div>

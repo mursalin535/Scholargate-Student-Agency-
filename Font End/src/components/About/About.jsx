@@ -100,7 +100,7 @@ const About = () => {
                 </h2>
                 <div className="w-24 h-2 bg-blue-600 rounded-full" />
                 <p className="text-xl text-slate-400 inter font-light">
-                    An editorial overview of our evolution from a student advocacy group into a premier consultancy for Canada, Italy, and New Zealand.
+                    An editorial overview of our evolution from a student advocacy group into a premier consultancy for Australia, Canada, Italy, and New Zealand.
                 </p>
             </motion.div>
             
@@ -109,7 +109,7 @@ const About = () => {
                     LEGACY SCHOLARGATE was conceived as a corrective measure to a fragmented industry. We recognized that the "study-abroad" market was saturated with agents, but lacked genuine advocates. Ambitious students were frequently lost in a labyrinth of hidden fees, fragmented data, and non-specialized advice.
                 </p>
                 <p>
-                    Our foundation was built to rectify this. We didn't want to be an agency that promised the world; we wanted to be the agency that mastered specific territories. By focusing exclusively on Canada, Italy, and New Zealand, we have been able to build direct, high-level relationships with institutional directorates, ensuring our students receive priority insights and transparent pathways that other generalist consultancies often overlook.
+                    Our foundation was built to rectify this. We didn't want to be an agency that promised the world; we wanted to be the agency that mastered specific territories. By focusing exclusively on Australia, Canada, Italy, and New Zealand, we have been able to build direct, high-level relationships with institutional directorates, ensuring our students receive priority insights and transparent pathways that other generalist consultancies often overlook.
                 </p>
                 <p>
                     We operate with the precision of a research institute. Every student profile undergoes a rigorous "forensic" audit where we analyze not just academic history, but future career alignment and financial sustainability. This methodology has allowed us to maintain a record of near-perfect visa success and institutional placements over the last decade.
@@ -216,7 +216,7 @@ const About = () => {
                             The "Foundation" in our name is intentional. It represents our commitment to building a solid base for every student's future. Our first successful placement wasn't just a visa stamp; it was a realization that with the right data and honest guidance, a student from a modest background could excel at a top-tier Canadian research university. 
                         </p>
                         <p>
-                            This success set the blueprint for our expansion. We decided to stop being generalists and start being specialists. We spent years on the ground in New Zealand, Canada, and Italy, vetting universities, understanding local job markets, and building the networks that our students now rely on. We didn't just want to send students away; we wanted to ensure they had a home and a future when they arrived.
+                            This success set the blueprint for our expansion. We decided to stop being generalists and start being specialists. We spent years on the ground in Australia, New Zealand, Canada, and Italy, vetting universities, understanding local job markets, and building the networks that our students now rely on. We didn't just want to send students away; we wanted to ensure they had a home and a future when they arrived.
                         </p>
                     </div>
                 </motion.div>
@@ -240,7 +240,7 @@ const About = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {[
-                  { id: "01", title: "The Discovery Phase", desc: "Our first three years were dedicated to intensive market research and institutional vetting. We identified that Canada, Italy, and New Zealand offered the most robust legal protections and academic ROI for international students." },
+                  { id: "01", title: "The Discovery Phase", desc: "Our first three years were dedicated to intensive market research and institutional vetting. We identified that Australia, Canada, Italy, and New Zealand offered the most robust legal protections and academic ROI for international students." },
                   { id: "02", title: "Network Integration", desc: "We transitioned from being external advisors to integrated partners. By building direct pipelines with university registrar offices, we eliminated the 'middleman' noise, ensuring our students' applications were prioritized." },
                   { id: "03", title: "Advocacy Standardization", desc: "In the last five years, we have standardized our 'Forensic Audit' methodology. Every application is now cross-verified by three separate departments to ensure zero errors and maximum visa success probability." }
                 ].map((item, idx) => (
@@ -278,7 +278,7 @@ const About = () => {
                             As we look toward 2030, our roadmap is defined by the integration of technology and human empathy. We are currently developing a proprietary "Student Welfare AI" that will provide real-time immigration updates and academic risk assessments for our alumni across the globe.
                         </p>
                         <p>
-                            Furthermore, we are expanding our physical presence. We are slated to open our "Student Success Hubs" in Toronto, Rome, and Auckland by 2027. These will not be offices, but community spaces where our students can gather for networking, career mentorship, and legal support long after they have arrived.
+                            Furthermore, we are expanding our physical presence. We are slated to open our "Student Success Hubs" in Toronto, Rome, Sydney, and Auckland by 2027. These will not be offices, but community spaces where our students can gather for networking, career mentorship, and legal support long after they have arrived.
                         </p>
                         <p>
                             Our goal is to create a lifelong ecosystem. We don't just want you to graduate; we want you to lead. We are building the infrastructure that will support the next generation of global innovators, ensuring that LEGACY SCHOLARGATE remains the most trusted name in international education.
